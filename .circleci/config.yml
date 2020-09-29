@@ -8,6 +8,7 @@ jobs:
       - run:
           name: cmake install
           command: |
+            sudo apt remove --purge --auto-remove cmake
             mkdir ~/cmake
             cd ~/cmake
             wget https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-Linux-x86_64.tar.gz
