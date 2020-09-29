@@ -6,6 +6,6 @@ jobs:
     steps:
       - checkout
       - run:
-          command: cmake -S . -B build
+          command: 'cmake -S . -B build'
       - run:
-          commnd: cmake --build build
+          commnd: 'cmake --build build'
