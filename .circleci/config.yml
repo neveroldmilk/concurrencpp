@@ -5,7 +5,5 @@ jobs:
       image: ubuntu-1604:202007-01
     steps:
       - checkout
-      - run:
-          command: 'cmake -S . -B build'
-      - run:
-          commnd: 'cmake --build build'
+      - run: 'cmake -S . -B build'
+      - run: 'cmake --build build'
