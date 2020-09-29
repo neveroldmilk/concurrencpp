@@ -9,12 +9,8 @@ jobs:
       - run: 'cd temp'
       - run: 'wget https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3.tar.gz'
       - run: 'tar -xzvf cmake-3.18.3.tar.gz'
-      - run: 'cd cmake-3.18.3'
-      - run: './bootstrap'
-      - run: 'make -j(nproc)'
-      - run: 'sudo make install'
+      - run: 'cd cmake-3.18.3 ; ./bootstrap ; make -j(nproc) ; sudo make install '
       - run: 'cmake --version'
-      - run: 'cd ..'
       - run: 'rm -rf temp'
       - checkout
       - run: 'cmake -H. -Bbuild'
