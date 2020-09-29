@@ -6,7 +6,16 @@ jobs:
     steps:
       - checkout
       - run:
-          name: cmake
+          name: cmake install
+          command: |
+            mkdir ~/cmake
+            cd ~/cmake
+            wget https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3-Linux-x86_64.tar.gz
+            tar xf cmake-3.18.3-Linux-x86_64.tar.gz
+            export PATH="`pwd`/cmake-3.18.3-Linux-x86_64/bin:$PATH" # save it in .bashrc if needed
+            which cmake
+      - run:
+          name: cmake build
           command: |
             cmake -H. -Bbuild
             cmake --build build
