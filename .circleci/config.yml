@@ -5,18 +5,19 @@ jobs:
       image: ubuntu-1604:202007-01
     steps: 
       - run: 'sudo apt remove --purge --auto-remove cmake'
-      - run: |
-        'mkdir temp'
-        'cd temp'
-        'wget https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3.tar.gz'
-        'tar -xzvf cmake-3.18.3.tar.gz'
-        'cd cmake-3.18.3'
-        './bootstrap'
-        'make -j(nproc)'
-        'sudo make install'
-        'cmake --version'
-        'cd ..'
-        'rm -rf temp'
+      - run: 
+        command: |
+          'mkdir temp'
+          'cd temp'
+          'wget https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3.tar.gz'
+          'tar -xzvf cmake-3.18.3.tar.gz'
+          'cd cmake-3.18.3'
+          './bootstrap'
+          'make -j(nproc)'
+          'sudo make install'
+          'cmake --version'
+          'cd ..'
+          'rm -rf temp'
       - checkout
       - run: 'cmake -H. -Bbuild'
       - run: 'cmake --build build'
