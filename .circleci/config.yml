@@ -4,7 +4,9 @@ jobs:
     machine:
       image: ubuntu-1604:202007-01
     steps:
+      - checkout
       - run:
-          name: Running In A Container With Node
+          name: cmake
           command: |
-            node -v
+            cmake -H. -Bbuild
+            cmake --build build
