@@ -4,10 +4,8 @@ jobs:
     machine:
       image: ubuntu-1604:202007-01
     steps:
-      - run: sudo apt remove --purge --auto-remove cmake
-      - run: 'apt-get update && sudo apt-get install -y cmake'
+      - run: 'sudo apt remove --purge --auto-remove cmake'
+      - run: 'sudo apt-get update && sudo apt-get install -y cmake'
       - checkout
-      - run: mkdir build
-      - run: cd build
       - run: 'cmake -H. -Bbuild'
       - run: 'cmake --build build'
