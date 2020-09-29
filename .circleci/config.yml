@@ -6,7 +6,7 @@ jobs:
     steps: 
       - run: 'sudo apt remove --purge --auto-remove cmake'
       - run: 
-        command: |
+        - >
           'echo hello'
       - checkout
       - run: 'cmake -H. -Bbuild'
