@@ -3,9 +3,18 @@ jobs:
   build:
     machine:
       image: ubuntu-1604:202007-01
-    steps:
+    steps: 
       - run: 'sudo apt remove --purge --auto-remove cmake'
-      - run: 'sudo apt-get update && sudo apt-get install -y cmake'
+      - run: |
+        mkdir temp
+        cd temp
+        wget https://github.com/Kitware/CMake/releases/download/v3.18.3/cmake-3.18.3.tar.gz
+        tar -xzvf cmake-3.18.3.tar.gz
+        cd cmake-3.18.3
+        ./bootstrap
+        make -j(nproc)
+        sudo make install
+        cmake --version   
       - checkout
       - run: 'cmake -H. -Bbuild'
       - run: 'cmake --build build'
