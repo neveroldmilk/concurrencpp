@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   build:
+    executor: exectr
     machine:
       image: ubuntu-1604:202007-01
     steps:
